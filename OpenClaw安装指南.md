@@ -12,8 +12,6 @@
 - [系统要求](#系统要求)
 - [安装方式](#安装方式)
   - [方式一：安装脚本（推荐）](#方式一安装脚本推荐)
-  - [方式二：npm 安装](#方式二npm-安装)
-  - [方式三：从源码安装](#方式三从源码安装)
 - [安装后配置](#安装后配置)
   - [局域网访问配置](#局域网访问配置)
 - [验证安装](#验证安装)
@@ -88,58 +86,6 @@ curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
 
 # Windows
 & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
-```
-
----
-
-### 方式二：npm 安装
-
-如果你已经手动管理 Node.js：
-
-```bash
-# 安装
-npm install -g openclaw@latest
-
-# 运行引导并安装后台服务
-openclaw onboard --install-daemon
-```
-
-**pnpm 用户：**
-
-```bash
-pnpm add -g openclaw@latest
-pnpm approve-builds -g   # 批准构建脚本
-openclaw onboard --install-daemon
-```
-
-> 💡 如果遇到 `sharp` 构建错误，运行：
-> ```bash
-> SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
-> ```
-
----
-
-### 方式三：从源码安装
-
-适合开发者或想要自定义的用户：
-
-```bash
-# 1. 克隆仓库
-git clone https://github.com/openclaw/openclaw.git
-cd openclaw
-
-# 2. 安装依赖
-pnpm install
-
-# 3. 构建
-pnpm ui:build
-pnpm build
-
-# 4. 链接 CLI
-pnpm link --global
-
-# 5. 运行引导
-openclaw onboard --install-daemon
 ```
 
 ---
